@@ -7,15 +7,16 @@
 <body>
 
 
-
-<h1>These are good books</h1>
-
-<ul>
-<% @good_books.each do |book| %>
-<li><%= book %></li>
-<% end %>
-</ul>
-<a href="new">Add a new book</a>
+<div class="container">
+	<div class="header"><span class="margin">These are good books</span></div>
+	<ul>
+	<% @good_books.each do |book| %>
+	<li><%= book %></li>
+	<% end %>
+	</ul>
+	<br>
+</div>
+	<a href="new"><div class="button">Add book</div></a>
 
 
 
