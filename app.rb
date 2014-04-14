@@ -1,17 +1,25 @@
 require 'sinatra'
 
-get "/" do 
+get "/main" do 
  	@good_books = GoodBooks.good_books
  	erb :"good_books/index"
  end
 
 get "/error" do
-	"That book sucks, im not gonna add it to my list!"
+	erb :"good_books/error"
 end
 
-get "/addbook" do
-	@good_books = GoodBooks.good_books
+get "/new" do
 	erb :"good_books/new"
+end
+
+post "/add_book" do
+	text = params[:book]
+	if GoodBooks.add_new_book(text)
+		redirect "/main"
+	else 
+		redirect "/error"
+	end
 end
 
 class GoodBooks
@@ -24,6 +32,10 @@ class GoodBooks
 	end
 
 	def self.add_new_book(book)
+		if book.length < 15
 		@@good_books << book
+	else
+		return false
+	end
 	end
 end
