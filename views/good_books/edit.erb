@@ -1,0 +1,11 @@
+
+
+<form action="/good_books/edit/<%= @good_book.id %>" method="post" id="edit">
+		<input type="hidden" name="_method" value="put" />
+ 
+    
+    <input type="text"  id="title" name="good_book[title]" value="<%= @good_book.title %>" / ><br>by<br>
+    <input type="text"  id="author" name="good_book[author]" value="<%= @good_book.author %>" / ><br>
+    <input type="submit" value="Change!" />
+   
+  </form>

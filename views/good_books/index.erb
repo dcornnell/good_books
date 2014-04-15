@@ -11,7 +11,7 @@
 	<div class="header"><span class="margin">These are good books</span></div>
 	<ul>
 	<% @good_books.each do |book| %>
-	<li><%= book %></li>
+	<a href="good_books/delete/<%= book.id %>"><li><%= book.title %>&nbsp;by&nbsp;<%= book.author %></a></li>
 	<% end %>
 	</ul>
 	<br>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="application.css">
+</head>
+<body>
+<%= @good_books.title %> by:
+<%= @good_books.author %>
+
+<form action="/good_books/delete/<%=@good_books.id %>" method="post">
+	<input type="hidden" name="_method" value="delete" />
+	<input type="submit" value="Delete" />
+	</form>
+
+
+
+</body>
+</html>

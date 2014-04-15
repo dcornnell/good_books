@@ -14,8 +14,11 @@ describe GoodBooks do
 		second_count.should > first_count
 	end
 
-	it 'should check to make sure book title isnt to long' do
+	it 'should check for invlaid input' do
+		first_count = GoodBooks.good_books.count
 		book = "This book title is way to long to be a book title"
-		GoodBooks.add_new_book(book).should eq(false)
+		GoodBooks.add_new_book(book)
+		second_count =GoodBooks.good_books.count
+		second_count.should == first_count
 	end
 end

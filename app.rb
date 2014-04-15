@@ -1,9 +1,20 @@
 require 'sinatra'
+require 'sinatra/activerecord'
+
+set :database, "sqlite3:///good_books.db"
+
+post "/add_book" do
+	good_book = GoodBooks.new
+	good_book.title = params[:title]
+	good_book.author = params[:author]
+	good_book.save
+	redirect :"/main"
+end
 
 get "/main" do 
- 	@good_books = GoodBooks.good_books
+ 	@good_books = GoodBooks.all
  	erb :"good_books/index"
- end
+end
 
 get "/error" do
 	erb :"good_books/error"
@@ -13,19 +24,40 @@ get "/new" do
 	erb :"good_books/new"
 end
 
-post "/add_book" do
-	text = params[:book]
-	if GoodBooks.add_new_book(text)
-		redirect "/main"
-	else 
-		redirect "/error"
+get"/good_books/delete/:id" do
+	@good_books = GoodBooks.find(params[:id])
+	 erb :"good_books/delete"
 	end
+
+
+get "/good_books/edit/:id" do
+	@good_book = GoodBooks.find(params[:id])
+	 erb :"good_books/edit"
+	end
+
+put '/good_books/edit/:id' do
+	good_book = GoodBooks.find params[:id]
+	good_book.update_attributes(params[:good_book])
+
+	
+	redirect :"/main"
 end
 
-class GoodBooks
+ 
+
+
+delete '/good_books/delete/:id' do
+	@good_books =GoodBooks.find params[:id]
+	@good_books.destroy
+		redirect :"/main"
+end
+
+
+
+
+class GoodBooks < ActiveRecord::Base
 	@@good_books = ["Slaughterhouse V" , "The Stranger" , "The Hobbit" , "Hyperion"]
-	def initialize
-	end
+	
 
 	def self.good_books
 		@@good_books
@@ -33,9 +65,9 @@ class GoodBooks
 
 	def self.add_new_book(book)
 		if book.length < 25
-		@@good_books << book
-	else
-		return false
-	end
+			@@good_books << book
+		else
+			return false
+		end
 	end
 end
