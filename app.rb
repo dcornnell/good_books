@@ -24,18 +24,18 @@ get "/new" do
 	erb :"good_books/new"
 end
 
-get"/good_books/delete/:id" do
+get"/good_books/:id/delete" do
 	@good_books = GoodBooks.find(params[:id])
 	 erb :"good_books/delete"
 	end
 
 
-get "/good_books/edit/:id" do
+get "/good_books/:id/edit" do
 	@good_book = GoodBooks.find(params[:id])
 	 erb :"good_books/edit"
 	end
 
-put '/good_books/edit/:id' do
+put '/good_books/:id/edit' do
 	good_book = GoodBooks.find params[:id]
 	good_book.update_attributes(params[:good_book])
 
@@ -46,7 +46,7 @@ end
  
 
 
-delete '/good_books/delete/:id' do
+delete '/good_books/:id/delete' do
 	@good_books =GoodBooks.find params[:id]
 	@good_books.destroy
 		redirect :"/main"

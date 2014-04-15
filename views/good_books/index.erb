@@ -7,16 +7,16 @@
 <body>
 
 
-<div class="container">
-	<div class="header"><span class="margin">These are good books</span></div>
+
+	<h1>These are good books</h1>
 	<ul>
 	<% @good_books.each do |book| %>
-	<a href="good_books/delete/<%= book.id %>"><li><%= book.title %>&nbsp;by&nbsp;<%= book.author %></a></li>
+	<li class="me"><%= book.title %><br><%= book.author %><i class="icon-minus pull-right"><a href="good_books/<%= book.id %>/delete">delete</a><br><a href="good_books/<%= book.id %>/edit">edit</a></i></li>
 	<% end %>
 	</ul>
 	<br>
 </div>
-	<a href="new"><div class="button">Add book</div></a>
+	<a href="new"><button id="add">Add book</button></a>
 
 
 

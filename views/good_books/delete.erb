@@ -1,16 +1,20 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="application.css">
+<link rel="stylesheet" type="text/css" href="<%= url('/application.css') %>">
 </head>
 <body>
-<%= @good_books.title %> by:
+<h1> Delete? </h1>
+<div class="holder"><%= @good_books.title %> by:
 <%= @good_books.author %>
 
-<form action="/good_books/delete/<%=@good_books.id %>" method="post">
+<form action="/good_books/<%=@good_books.id %>/delete" method="post">
 	<input type="hidden" name="_method" value="delete" />
+	<br>
 	<input type="submit" value="Delete" />
 	</form>
 
+	<!-- <a href="main"><button>Don't Delete</button></a>
+ -->
 
 
 </body>

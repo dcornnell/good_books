@@ -1,46 +1,77 @@
-
-.container {
-	background-color: #38DF64;
-	width: 400px;
-	border-radius: 10px;
-	color: #007C21;
-	border-style: inset; 
-	border-color: #00BF32;
-	border-width: 2px;
-
-
+@import url('http://fonts.googleapis.com/css?family=Armata');
+body {
+  font-family: "Armata", sans-serif;
+  font-size: 14px;
+  color: #222;
+  margin: 50px auto;
+  width: 700px;
 }
 
-.header {
-	background-color: #007C21;
-	width: 400px;
-	height: 50px;
-	font-size: 24pt;
-	border-radius: 10px 10px 0px 0px;
-	line-height: 50px;
-	color: #00BF32;
-	
-
-
+h1 {
+  margin-left: 40px;
+  margin-bottom: 40px;
 }
 
-.margin {
-	margin-left: 10px;
-
+ul {
+  list-style: none;
 }
 
-.button {
-	background-color: #007C21;
-	border-radius: 10px;
-	color: #00BF32;
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	margin: 2px 2px 2px 2px;
-	display: inline-block;
-	border-style: inset; 
-	border-color: #00BF32;
-	border-width: 2px;
-
+a {
+	color: white;
+	text-decoration: none;
 }
+
+li {
+  padding: 15px;
+  background-color: #1A8BB2;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top: 1px;
+  width: 180px;
+  cursor: default;
+  transition: background-color 0.3s ease-in-out;
+}
+
+li:first-child {
+  border-top: 1px solid #f2f2f2;
+}
+
+li:hover {
+  background-color: #B25E4F;
+  color: black;
+}
+
+li:hover i.icon-minus, button:hover i.icon-plus {
+  display: block;
+  opacity: 1;
+}
+
+button {
+  padding: 15px;
+  background-color: #87CCB2;
+  border: 1px solid #f2f2f2;
+  width: 210px;
+  margin-left: 40px;
+  text-align: left;
+  cursor: default;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #FFAC78;
+  color: black;
+}
+
+i.icon-minus, i.icon-plus {
+  display: none;
+  float: right;
+  margin-top: -25px;
+  margin-left:100px;
+  
+  position: relative;
+}
+
+.holder {
+	margin-left: 40px;
+}
+
+
