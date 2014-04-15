@@ -32,7 +32,7 @@ class GoodBooks
 	end
 
 	def self.add_new_book(book)
-		if book.length < 15
+		if book.length < 25
 		@@good_books << book
 	else
 		return false
